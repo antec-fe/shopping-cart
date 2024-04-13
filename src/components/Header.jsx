@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux" 
+import { toggle } from "../store/shoppingCartSlice"
+
 function Header() {
+    const dispatch = useDispatch()
+
+    const handleCartButton = () => {
+        dispatch(toggle())
+    }
+
     return (
         < nav className="navbar navbar-expand-lg bg-body-tertiary" >
             <div className="container-fluid">
@@ -30,7 +39,13 @@ function Header() {
                         </li>
                     </ul>
                     <form className="d-flex">
-                        <button className="btn btn-outline-success" type="button">Shopping cart</button>
+                        <button
+                            className="btn btn-outline-success"
+                            type="button"
+                            onClick={handleCartButton}
+                        >
+                            Shopping cart
+                        </button>
                     </form>
                 </div>
             </div>

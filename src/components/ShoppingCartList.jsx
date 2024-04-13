@@ -1,6 +1,12 @@
+import { useSelector } from 'react-redux'
+
 import ShoppingCartListItem from './ShoppingCartListItem'
 
 function ShoppingCartList() {
+    const isVisible = useSelector((state) => state.shoppingCart.isVisible)
+
+    if (!isVisible) return
+
     return (
         <table className="table">
             <thead>
